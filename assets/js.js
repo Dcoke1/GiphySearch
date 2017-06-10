@@ -63,7 +63,7 @@ $.ajax({
 $(".input-group-btn").on("click", function(event) {
 	event.preventDefault();
 
-	var name = $(".input-group").val().trim();
+	var name = $("#mySubmit").val().trim();
 
 	buttonName.push(name);
 
