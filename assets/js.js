@@ -11,7 +11,7 @@ for (var i = 0; i < buttonName.length; i++) {
 $(".bttn-row").on("click", function displayGif() {
 
 	// Api key for gif URL
-var name = $(this).attr("bttn-row");
+var name = $(this).text();
 var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=10"
 	
 	// Ajax call for giphy data 
