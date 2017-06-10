@@ -11,7 +11,7 @@ for (var i = 0; i < buttonName.length; i++) {
 $(".bttn-row").on("click", function displayGif() {
 
 	// Api key for gif URL
-var name = $(this).attr(".bttn-row");
+var name = $(this).attr("bttn-row");
 var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=10"
 	
 	// Ajax call for giphy data 
@@ -42,30 +42,30 @@ $.ajax({
 
 	function renderButtons() {
 
-		// $("#buttonDrop").empty();
+		$("#buttonDrop").empty();
 
         
-        // for (var i = 0; i < buttonName.length; i++) {
+        for (var i = 0; i < buttonName.length; i++) {
 
-          var a = $("<button>");
+          var a = $("<button class='bttn-row'>" + buttonName[i] + "</button>");
           
           a.addClass("name");
           
-          a.attr("data-name", buttonName[i]);
+          a.attr("bttn-row", buttonName[i]);
           
           a.text(buttonName[i]);
           
           $("#buttonDrop").append(a);
-      
+      }
      }
 
 
-$(".btn btn-default").on("click", function(event) {
+$(".input-group-btn").on("click", function(event) {
 	event.preventDefault();
 
-	var name = $(".giphInput").val().trim();
+	var name = $(".input-group").val().trim();
 
-	buttonName.push(event);
+	buttonName.push(name);
 
 	renderButtons();
 
