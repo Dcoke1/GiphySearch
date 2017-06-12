@@ -1,20 +1,13 @@
+//Automobile button array
 var buttonName = ["Honda", "Toyota", "Ferrari", "Lamborghini", "Acura", "Nissan", "Lexus", "Mercedes", "BMW"];
 
-$("#buttonDrop").empty();
-for (var i = 0; i < buttonName.length; i++) {
-	var usrButton = $("<button class='bttn-row'>" + buttonName[i] + "</button>");
+//Display function renders html to display gifs
+function displayGif() {
 
-	$("#buttonDrop").append(usrButton);
-}
-
-
-$(".bttn-row").on("click", function displayGif() {
-
-	// Api key for gif URL
-var name = $(this).text();
-var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=10"
+	var name = $(this).attr("bttn-row");
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=10"
 	
-	// Ajax call for giphy data 
+// Ajax call for specific giphy data 
 $.ajax({
 	url: queryURL,
 	method: "GET"
@@ -22,6 +15,7 @@ $.ajax({
 	console.log(response);
 	var results = response.data;
 
+//Looping through giphy results after button is clicked
 	for (var i = 0; i < results.length; i++) {
 		var gifDiv = $("<div class='item'>");
 
@@ -38,37 +32,54 @@ $.ajax({
 		$("#giphyDrop").prepend(gifDiv)
 	}
 	});
-});
 
-	function renderButtons() {
+}
 
-		$("#buttonDrop").empty();
+//function for displaying buttons
+function renderButtons() {
 
-        
-        for (var i = 0; i < buttonName.length; i++) {
+//Deletes buttons prior to adding new buttons	
+	$("#buttonDrop").empty();
 
-          var a = $("<button class='bttn-row'>" + buttonName[i] + "</button>");
-          
-          a.addClass("name");
-          
-          a.attr("bttn-row", buttonName[i]);
-          
-          a.text(buttonName[i]);
-          
-          $("#buttonDrop").append(a);
-      }
-     }
+//Loops through array of automobiles	
+	for (var i = 0; i < buttonName.length; i++) {
+	
+	var a = $("<button>");
+      
+	  a.addClass("name");
+	  
+	  a.attr("bttn-row", buttonName[i]);
+	  
+	  a.text(buttonName[i]);
+	  
+	  $("#buttonDrop").append(a);
+	}
+ }
 
-
+//Add button to array function
 $(".input-group-btn").on("click", function(event) {
 	event.preventDefault();
 
 	var name = $("#mySubmit").val().trim();
 
-	buttonName.push(name);
+	buttonName.push(name)
+	console.log(name);
 
 	renderButtons();
-
-
+	
 });
+
+//Click event assigned to class .name user creates to display Gif
+$(document).on("click", ".name", displayGif);
+
+//Displays initial buttons
+renderButtons();
+
+
+
+
+	
+
+
+
 
