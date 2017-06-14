@@ -5,7 +5,7 @@ var buttonName = ["Honda", "Toyota", "Ferrari", "Lamborghini", "Acura", "Nissan"
 function displayGif() {
 
 	var name = $(this).attr("bttn-row");
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=10"
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=15"
 	
 // Ajax call for specific giphy data 
 $.ajax({
