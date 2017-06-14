@@ -17,13 +17,13 @@ $.ajax({
 
 //Looping through giphy results after button is clicked
 	for (var i = 0; i < results.length; i++) {
-		var gifDiv = $("<div class='item'>");
+		var gifDiv = $("<div class='img-thumbnail'>");
 
 		var rating = results[i].rating;
 
 		var pTag = $("<p>").text("Rating: " + rating);
 
-		var gifImage = $("<img>");
+		var gifImage = $("<img class='imgState'>");
 		gifImage.attr("src", results[i].images.fixed_height.url);
 
 		gifDiv.prepend(pTag);
@@ -74,6 +74,19 @@ $(document).on("click", ".name", displayGif);
 
 //Displays initial buttons
 renderButtons();
+
+$(".imgState").on("click", function() {
+
+	var state = $(this).attr("imgState")
+
+	if (state === "still") {
+        $(this).attr("src", $(this).attr("imgState-animate"));
+        $(this).attr("imgState", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("imgState-still"));
+      }  
+    });
+  
 
 
 
