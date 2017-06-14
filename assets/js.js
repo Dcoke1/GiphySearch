@@ -21,9 +21,9 @@ $.ajax({
 
 		var rating = results[i].rating;
 
-		var pTag = $("<p>").text("Rating: " + rating);
+		var pTag = $("<center><p>").text("Rating: " + rating);
 
-		var gifImage = $("<img class='imgState'>");
+		var gifImage = $("<img class='data-still'>");
 		gifImage.attr("src", results[i].images.fixed_height.url);
 
 		gifDiv.prepend(pTag);
@@ -75,16 +75,17 @@ $(document).on("click", ".name", displayGif);
 //Displays initial buttons
 renderButtons();
 
-$(".imgState").on("click", function() {
+$(".img").on("click", function() {
+   
+      var state = $(this).attr("data-state")
 
-	var state = $(this).attr("imgState")
 
-	if (state === "still") {
-        $(this).attr("src", $(this).attr("imgState-animate"));
-        $(this).attr("imgState", "animate");
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
       } else {
-        $(this).attr("src", $(this).attr("imgState-still"));
-      }  
+        $(this).attr("src", $(this).attr("data-still"));
+      }
     });
   
 
