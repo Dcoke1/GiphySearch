@@ -1,5 +1,5 @@
 //Automobile button array
-var buttonName = ["Honda", "Toyota", "Ferrari", "Lamborghini", "Acura", "Nissan", "Porsche", "Mercedes", "BMW"];
+var buttonName = ["KimKardashian", "Travi$Scott", "Ferrari", "Lamborghini", "Goku", "Cookies", "Adidas", "Mercedes", "BMW"];
 
 //Display function renders html to display gifs
 function displayGif() {
