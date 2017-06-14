@@ -23,7 +23,7 @@ $.ajax({
 
 		var pTag = $("<center><p>").text("Rating: " + rating);
 
-		var gifImage = $("<img class='data-still'>");
+		var gifImage = $("<img class='still'>");
 		gifImage.attr("src", results[i].images.fixed_height.url);
 
 		gifDiv.prepend(pTag);
