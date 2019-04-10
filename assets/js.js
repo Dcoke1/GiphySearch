@@ -5,7 +5,7 @@ var buttonName = ["Jamaica", "Travi$Scott", "Ferrari", "4K", "Goku", "Cookies", 
 function displayGif() {
 
 	var name = $(this).attr("bttn-row");
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=7"
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=25"
 	
 // Ajax call for specific giphy data 
 $.ajax({
@@ -14,9 +14,12 @@ $.ajax({
 }).done(function(response) {
 	console.log(response);
 	var results = response.data;
-
+console.log(results)
 //Looping through giphy results after button is clicked
-	for (var i = 0; i < results.length; i++) {
+	for (var i = 20; i < results.length; i++) {
+
+		results.sort(() => Math.random() - 0.5)
+
 		var gifDiv = $("<div class='img-thumbnail'>");
 
 		var rating = results[i].rating;
