@@ -1,11 +1,11 @@
 //Automobile button array
-var buttonName = ["KimKardashian", "Travi$Scott", "Ferrari", "Lamborghini", "Goku", "Cookies", "Adidas", "Mercedes", "BMW"];
+var buttonName = ["Jamaica", "Travi$Scott", "Ferrari", "4K", "Goku", "Cookies", "Adidas", "Xbox", "Google"];
 
 //Display function renders html to display gifs
 function displayGif() {
 
 	var name = $(this).attr("bttn-row");
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=15"
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=7"
 	
 // Ajax call for specific giphy data 
 $.ajax({
