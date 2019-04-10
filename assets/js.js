@@ -1,30 +1,30 @@
 //Automobile button array
-var buttonName = ["Jamaica", "Travi$Scott", "Ferrari", "4K", "Goku", "Cookies", "Adidas", "Xbox", "Google"];
+let buttonName = ["Jamaica", "Travi$Scott", "Ferrari", "4K", "Goku", "Cookies", "Adidas", "Xbox", "Google"];
 
 //Display function renders html to display gifs
 function displayGif() {
 
-	var name = $(this).attr("bttn-row");
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=25"
+	let name = $(this).attr("bttn-row");
+	let queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=25"
 	
 // Ajax call for specific giphy data 
 $.ajax({
 	url: queryURL,
 	method: "GET"
-}).done(function(response) {
+}).done((response)=> {
 	console.log(response);
-	var results = response.data.sort(() => Math.random() - 0.5);
+	let results = response.data.sort(() => Math.random() - 0.5);
 
 //Looping through giphy results after button is clicked
-	for (var i = 20; i < results.length; i++) {
+	for (let i = 20; i < results.length; i++) {
 
-		var gifDiv = $("<div class='img-thumbnail'>");
+		let gifDiv = $("<div class='img-thumbnail'>");
 
-		var rating = results[i].rating;
+		let rating = results[i].rating;
 
-		var pTag = $("<center><p>").text("Rating: " + rating);
+		let pTag = $("<center><p>").text("Rating: " + rating);
 
-		var gifImage = $("<img class='still'>");
+		let gifImage = $("<img class='still'>");
 		gifImage.attr("src", results[i].images.fixed_height.url);
 
 		gifDiv.prepend(pTag);
@@ -37,15 +37,15 @@ $.ajax({
 }
 
 //function for displaying buttons
-function renderButtons() {
+let renderButtons = ()=> {
 
 //Deletes buttons prior to adding new buttons	
 	$("#buttonDrop").empty();
 
 //Loops through array of automobiles	
-	for (var i = 0; i < buttonName.length; i++) {
+	for (let i = 0; i < buttonName.length; i++) {
 	
-	var a = $("<button>");
+	let a = $("<button>");
       
 	  a.addClass("name");
 	  
@@ -58,10 +58,10 @@ function renderButtons() {
  }
 
 //Add button to array function
-$(".input-group-btn").on("click", function(event) {
+$(".input-group-btn").on("click", (event) => {
 	event.preventDefault();
 
-	var name = $("#mySubmit").val().trim();
+	let name = $("#mySubmit").val().trim();
 
 	buttonName.push(name)
 	console.log(name);
@@ -78,7 +78,7 @@ renderButtons();
 
 $(".img").on("click", function() {
    
-      var state = $(this).attr("data-state")
+      let state = $(this).attr("data-state")
 
 
       if (state === "still") {
