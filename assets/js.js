@@ -14,7 +14,7 @@ $.ajax({
 }).done(function(response) {
 	console.log(response);
 	var results = response.data.sort(() => Math.random() - 0.5);
-	
+
 //Looping through giphy results after button is clicked
 	for (var i = 20; i < results.length; i++) {
 
