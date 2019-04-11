@@ -33,6 +33,7 @@ flex-wrap: wrap;
 justify-content: center;
 }
 .img-thumbnail {
+overflow: auto;
 margin: 3px;	
 }
 .img-thumbnail:hover {
