@@ -16,9 +16,12 @@ $.ajax({
 	let results = response.data.sort(() => Math.random() - 0.5);
 
 //Looping through giphy results after button is clicked
-	for (let i = 20; i < results.length; i++) {
+	let i = 20;
+	let len = results.length;
 
-		let gifDiv = $("<div class='img-thumbnail'>");
+	for (i; i < len; i++) {
+
+		let gifDiv = $("<div class='img-thumbnail w3-animate-zoom'>");
 
 		let rating = results[i].rating;
 
@@ -33,8 +36,12 @@ $.ajax({
 		$("#giphyDrop").prepend(gifDiv)
 	}
 	});
-
 }
+//function to clear giphydrop
+$(".clrBtn").on("click", (event) => {
+		event.preventDefault();
+		$("#giphyDrop").empty();	
+});
 
 //function for displaying buttons
 let renderButtons = ()=> {
@@ -42,8 +49,11 @@ let renderButtons = ()=> {
 //Deletes buttons prior to adding new buttons	
 	$("#buttonDrop").empty();
 
-//Loops through array of automobiles	
-	for (let i = 0; i < buttonName.length; i++) {
+//Loops through array of buttons
+	let i = 0;
+	let len = buttonName.length;
+
+	for (i; i < len; i++) {
 	
 	let a = $("<button>");
       
@@ -58,16 +68,28 @@ let renderButtons = ()=> {
  }
 
 //Add button to array function
-$(".input-group-btn").on("click", (event) => {
+$(".addBtn").on("click", (event) => {
 	event.preventDefault();
 
 	let name = $("#mySubmit").val().trim();
 
-	buttonName.push(name)
+	buttonName.unshift(name)
 	console.log(name);
 
 	renderButtons();
 	
+});
+//Add button to array function on enter press
+$("#mySubmit").on("keyup", (event) => {
+	if (event.keyCode == 13) {
+	event.preventDefault();
+
+	let name = $("#mySubmit").val().trim();
+
+	buttonName.unshift(name)
+
+	renderButtons();
+	}
 });
 
 //Click event assigned to class .name user creates to display Gif
@@ -88,13 +110,3 @@ $(".img").on("click", function() {
         $(this).attr("src", $(this).attr("data-still"));
       }
     });
-  
-
-
-
-
-	
-
-
-
-
