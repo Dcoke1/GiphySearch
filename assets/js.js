@@ -5,7 +5,7 @@ let buttonName = ["Jamaica", "Travi$Scott", "Ferrari", "4K", "Goku", "Cookies", 
 function displayGif() {
 
 	let name = $(this).attr("bttn-row");
-	let queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=dc6zaTOxFJmzC&limit=25"
+	let queryURL = "https://api.giphy.com/v1/gifs/search?q="+ name + "&api_key=nKYmqq0i5gKOMDdBteTiDiEH6QNqbUae&limit=25"
 	
 // Ajax call for specific giphy data 
 $.ajax({
